@@ -2,14 +2,14 @@
 
 ## 各ステップのリンク
 - step1 - 前回のソースコードを詳しく見ていこう！
-    - ~~READMEを見る~~
-    - ~~ソースコードダウンロード~~
+    - [READMEを見る](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/tree/step1)
+    - [ソースコードダウンロード](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/archive/step1.zip)
 - step2 - 実際にデータを通信して取得してみよう！
-    - ~~READMEを見る~~
-    - ~~ソースコードをダウンロード~~
+    - [READMEを見る](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/tree/step2)
+    - [ソースコードをダウンロード](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/archive/step2.zip)
 - step3 - テーマをカスタマイズしてみよう！
-    - ~~READMEを見る~~
-    - ~~ソースコードをダウンロード~~
+    - [READMEを見る](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/tree/step3)
+    - [ソースコードをダウンロード](https://github.com/xenophy-yuuya-tanaka/21cafe_touch_002/archive/step3.zip)
 
 ## 今回のハンズオンに必要なもの
 
