@@ -135,6 +135,7 @@ Ext.define('App.controller.Edit', {
          * ストアのaddメソッドを利用して、ストア内に新規レコードを追加する
          */
         if (isNew) {
+            record.set('id', Ext.String.format('memo{0}', Ext.Date.now()));
             store.add(record);
         }
 

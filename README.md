@@ -1,43 +1,60 @@
-# README STEP1
+# README STEP2
 
-各ソースコードの概要になります。  
-細かい説明については、ソースコードに直接記述をしましたので、そちらを元に説明していきます。
+## 保持しているメモデータをMemory上からLocalStorageに変更する
 
-## 前回の完成品を元に、コードをお復習いしていこう！
+現在`App.store.Notes`の`dataプロパティ`に直接定義をしてしまっているメモデータを、LocalStorageに変更します
 
-### app.js
+### 変更するファイル
 
-アプリケーションの起動ポイントとなるファイル
+- app/store/Notes.js
+- app/model/Note.js
+- app/controller/Edit.js
 
-アプリケーションで必要になる`view` `controller` `store`などの定義を行ったり、アプリケーションの起動準備が完了したタイミングで実行される`launchメソッド`などがある
 
-### app/view/Main.js
+#### app/store/Notes.js
 
-今回実装したアプリケーションで利用する一覧用コンポーネント`App.view.List`と編集用コンポーネント`App.view.Edit`を内包するための、コンテナークラス
+データを保存する際に必要な固有の`id`用のフィールド定義を追加し
 
-`cardレイアウト`を用いることにより、各画面間の遷移を行えるようにしている
+    fields: [
+        {
+            name: 'id',
+            type: 'string'
+        },
+        ....
+    ],
 
-### app/view/List.js
+固定データを定義している`dataプロパティ`を削除します
 
-`App.store.Notes`に保持しているメモデータを一覧で表示させるための、`Ext.dataview.List`を継承したコンポーネントクラス
 
-### app/view/Edit.js
+#### app/model/Note.js
 
-一覧コンポーネントで選択もしくは、新規追加されたレコードを適応し、編集を行うための`Ext.form.Panel`を継承したコンポーネントクラス
+現在定義されている
 
-### app/model/Note.js
+    proxy: {
+        type: 'memory'
+    }
 
-メモデータとして保持するデータの構造を表すモデルクラス
+を
 
-### app/store/Notes.js
+    proxy: {
+        type: 'localstorage'
+    }
 
-モデルで構造定義された、複数のメモデータ（レコード）を管理するためのストアクラス
+に変更するだけ
 
-### app/controller/Main.js
+#### app/controller/Edit.js
 
-一覧画面および編集画面を内包した`App.view.Main`を管理するためのコントローラークラス
+現在各メモデータでユニークなIDを持っていないので、新規メモデータ追加時にユニークなIDを与えてあげます
 
-### app/controller/Edit.js
+    onSave: function(val) {
+        ...
+        
+        if (isNew) {
+            record.set('id', Ext.String.format('memo{0}', Ext.Date.now()));
+            store.add(record);
+        }
+        
+        ...
+    }
 
-編集画面のフォームの制御や、編集・追加時のストアを操作する為の処理を行っているコントローラークラス
-
+以上で、アプリケーションのLocalStorage対応は完了です。

@@ -31,6 +31,10 @@ Ext.define('App.model.Note', {
          */
         fields: [
             {
+                name: 'id',
+                type: 'string'
+            },
+            {
                 /**
                  * フィールド名
                  */
@@ -58,7 +62,7 @@ Ext.define('App.model.Note', {
          * などを利用します
          */
         proxy: {
-            type: 'memory'
+            type: 'localstorage'
         }
     }
 });

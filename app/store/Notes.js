@@ -63,11 +63,10 @@ Ext.define('App.store.Notes', {
          * 設定しておくと安全です
          */
         storeId: 'Notes'
-    },
+    }
 
     /**
      * メモリ上で保持している固定データ
-     */
     data: [
         {text: 'TESTTEST', update: '2013/08/01 13:00'},
         {text: 'TESTTEST', update: '2013/08/02 13:00'},
@@ -91,4 +90,5 @@ Ext.define('App.store.Notes', {
         {text: 'TESTTEST', update: '2013/08/01 13:00'},
         {text: 'TESTTEST', update: '2013/08/01 13:00'}
     ]
+     */
 });
